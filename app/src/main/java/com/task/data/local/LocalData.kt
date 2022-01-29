@@ -3,21 +3,9 @@ package com.task.data.local
 import android.content.SharedPreferences
 import com.task.FAVOURITES_KEY
 import com.task.data.Resource
-import com.task.data.dto.login.LoginRequest
-import com.task.data.dto.login.LoginResponse
-import com.task.data.error.PASS_WORD_ERROR
 import javax.inject.Inject
 
 class LocalData @Inject constructor(private val sharedPreferences: SharedPreferences) {
-
-    fun doLogin(loginRequest: LoginRequest): Resource<LoginResponse> {
-        if (loginRequest == LoginRequest("ahmed@ahmed.ahmed", "ahmed")) {
-            return Resource.Success(LoginResponse("123", "Ahmed", "Mahmoud",
-                    "FrunkfurterAlle", "77", "12000", "Berlin",
-                    "Germany", "ahmed@ahmed.ahmed"))
-        }
-        return Resource.DataError(PASS_WORD_ERROR)
-    }
 
     fun getCachedFavourites(): Resource<Set<String>> {
         return Resource.Success(sharedPreferences.getStringSet(FAVOURITES_KEY, setOf()) ?: setOf())

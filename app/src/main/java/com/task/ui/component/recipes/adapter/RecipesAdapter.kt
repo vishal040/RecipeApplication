@@ -8,7 +8,10 @@ import com.task.databinding.RecipeItemBinding
 import com.task.ui.base.listeners.RecyclerItemListener
 import com.task.ui.component.recipes.RecipesListViewModel
 
-class RecipesAdapter(private val recipesListViewModel: RecipesListViewModel, private val recipes: List<RecipesItem>) : RecyclerView.Adapter<RecipeViewHolder>() {
+class RecipesAdapter(
+    private val recipesListViewModel: RecipesListViewModel,
+    private val recipes: List<RecipesItem>
+) : RecyclerView.Adapter<RecipeViewHolder>() {
 
     private val onItemClickListener: RecyclerItemListener = object : RecyclerItemListener {
         override fun onItemSelected(recipe: RecipesItem) {
@@ -17,7 +20,9 @@ class RecipesAdapter(private val recipesListViewModel: RecipesListViewModel, pri
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
-        val itemBinding = RecipeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding = RecipeItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return RecipeViewHolder(itemBinding)
     }
 

@@ -1,7 +1,5 @@
 package com.task.data
 
-import com.task.data.dto.login.LoginRequest
-import com.task.data.dto.login.LoginResponse
 import com.task.data.dto.recipes.Recipes
 import com.task.data.local.LocalData
 import com.task.data.remote.RemoteData
@@ -18,12 +16,6 @@ class DataRepository @Inject constructor(private val remoteRepository: RemoteDat
     override suspend fun requestRecipes(): Flow<Resource<Recipes>> {
         return flow {
             emit(remoteRepository.requestRecipes())
-        }.flowOn(ioDispatcher)
-    }
-
-    override suspend fun doLogin(loginRequest: LoginRequest): Flow<Resource<LoginResponse>> {
-        return flow {
-            emit(localRepository.doLogin(loginRequest))
         }.flowOn(ioDispatcher)
     }
 

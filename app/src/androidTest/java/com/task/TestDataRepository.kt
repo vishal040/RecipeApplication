@@ -4,10 +4,7 @@ import com.task.TestUtil.dataStatus
 import com.task.TestUtil.initData
 import com.task.data.DataRepositorySource
 import com.task.data.Resource
-import com.task.data.dto.login.LoginRequest
-import com.task.data.dto.login.LoginResponse
 import com.task.data.dto.recipes.Recipes
-import com.task.data.error.Error
 import com.task.data.error.NETWORK_ERROR
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -26,14 +23,6 @@ class TestDataRepository @Inject constructor() : DataRepositorySource {
             DataStatus.EmptyResponse -> {
                 flow { emit(Resource.Success(Recipes(arrayListOf()))) }
             }
-        }
-    }
-
-    override suspend fun doLogin(loginRequest: LoginRequest): Flow<Resource<LoginResponse>> {
-        return flow {
-            emit(Resource.Success(LoginResponse("123", "Ahmed", "Mahmoud",
-                    "FrunkfurterAlle", "77", "12000", "Berlin",
-                    "Germany", "ahmed@ahmed.ahmed")))
         }
     }
 
