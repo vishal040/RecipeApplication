@@ -34,7 +34,7 @@ class DetailsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.initIntentData(intent.getParcelableExtra(RECIPE_ITEM_KEY) ?: RecipesItem())
+        viewModel.initRecipeData(intent.getParcelableExtra(RECIPE_ITEM_KEY) ?: RecipesItem())
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

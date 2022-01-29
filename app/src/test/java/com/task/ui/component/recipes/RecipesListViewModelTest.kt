@@ -8,11 +8,9 @@ import com.task.data.dto.recipes.RecipesItem
 import com.task.data.error.NETWORK_ERROR
 import com.util.InstantExecutorExtension
 import com.util.MainCoroutineRule
-import com.util.TestModelsGenerator
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import org.junit.Assert.assertEquals
@@ -20,7 +18,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.internal.configuration.injection.MockInjection
 
 @ExperimentalCoroutinesApi
 @ExtendWith(InstantExecutorExtension::class)
@@ -61,7 +58,7 @@ class RecipesListViewModelTest {
     }
 
     @Test
-    fun `retrieve recipes when recipe list is empty`() {
+    fun `requestRecipes when no recipe in response then returns empty list`() {
         val recipes = Recipes(arrayListOf())
         coEvery { dataRepository.requestRecipes() } returns flow {
             emit(Resource.Success(recipes))
@@ -77,7 +74,7 @@ class RecipesListViewModelTest {
     }
 
     @Test
-    fun `retrieve recipes when network request throws error`() {
+    fun `requestRecipes when network request fails then returns network error`() {
         val error: Resource<Recipes> = Resource.DataError(NETWORK_ERROR)
         coEvery { dataRepository.requestRecipes() } returns flow {
             emit(error)
@@ -89,7 +86,7 @@ class RecipesListViewModelTest {
     }
 
     @Test
-    fun `Search result found when item is present in the recipe list`() {
+    fun `search for recipe when search result found then return recipe item`() {
         val recipesResponse = getRecipesResponse()
         val searchTitle = "recipe2"
 
@@ -105,7 +102,7 @@ class RecipesListViewModelTest {
     }
 
     @Test
-    fun `No search result found when item is not present in the recipe list`() {
+    fun `search for recipe when search result is not found then return no result`() {
         val recipesResponse = getRecipesResponse()
         val searchTitle = "*&*^%"
 

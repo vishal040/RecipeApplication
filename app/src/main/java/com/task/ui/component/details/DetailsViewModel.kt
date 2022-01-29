@@ -26,7 +26,7 @@ open class DetailsViewModel @Inject constructor(
     val isFavouritePrivate = MutableLiveData<Resource<Boolean>>()
     val isFavourite: LiveData<Resource<Boolean>> get() = isFavouritePrivate
 
-    fun initIntentData(recipe: RecipesItem) {
+    fun initRecipeData(recipe: RecipesItem) {
         recipePrivate.value = recipe
     }
 
