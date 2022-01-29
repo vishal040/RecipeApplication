@@ -59,11 +59,6 @@ internal class MyKotlinJsonAdapter<T>(
             }
 
             values[index] = binding.adapter.fromJson(reader)
-
-//            if (values[index] == null && !binding.property.returnType.isMarkedNullable) {
-//                throw JsonDataException(
-//                    "Non-null value '${binding.property.name}' was null at ${reader.path}")
-//            }
         }
         reader.endObject()
 

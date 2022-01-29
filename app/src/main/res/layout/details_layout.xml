@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_recipe_Image"
-            tools:text="@string/recipe_details_preview" />
+            tools:text="@string/recipe_details_preview_dummy" />
 
         <ProgressBar
             android:id="@+id/pb_loading"
