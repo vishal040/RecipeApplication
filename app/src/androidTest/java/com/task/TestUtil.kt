@@ -8,7 +8,6 @@ import com.squareup.moshi.Types
 import com.task.data.dto.recipes.Recipes
 import com.task.data.dto.recipes.RecipesItem
 import com.task.data.remote.moshiFactories.MyKotlinJsonAdapterFactory
-import com.task.data.remote.moshiFactories.MyStandardJsonAdapters
 import java.io.InputStream
 import java.lang.reflect.Type
 
@@ -19,7 +18,6 @@ object TestUtil {
     fun initData(): Recipes {
         val moshi = Moshi.Builder()
                 .add(MyKotlinJsonAdapterFactory())
-                .add(MyStandardJsonAdapters.FACTORY)
                 .build()
         val type: Type = Types.newParameterizedType(List::class.java, RecipesItem::class.java)
         val adapter: JsonAdapter<List<RecipesItem>> = moshi.adapter(type)

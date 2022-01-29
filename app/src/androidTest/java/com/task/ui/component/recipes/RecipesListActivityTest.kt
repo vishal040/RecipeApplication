@@ -90,7 +90,7 @@ class RecipesListActivityTest {
     }
 
     @Test
-    fun testNoSearchResult() {
+    fun testRecipeListSearchWithNoResult() {
         dataStatus = DataStatus.EmptyResponse
         val searchText = "Any text"
         mActivityTestRule.launchActivity(null)
@@ -104,11 +104,23 @@ class RecipesListActivityTest {
     }
 
     @Test
-    fun testScroll() {
+    fun testRecipeListOnItemClickEvent() {
         dataStatus = DataStatus.Success
         mActivityTestRule.launchActivity(null)
         onView(withId(R.id.rv_recipes_list))
                 .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_description)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun testRecipeListScrollEvent() {
+        dataStatus = DataStatus.Success
+        mActivityTestRule.launchActivity(null)
+        onView(withId(R.id.rv_recipes_list))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
+        onView(withId(R.id.rv_recipes_list))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(5, click()))
         onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_description)).check(matches(isDisplayed()))
     }

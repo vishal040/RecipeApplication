@@ -1,10 +1,7 @@
 package com.task.data.remote
 
-import com.squareup.moshi.Moshi
 import com.task.BASE_URL
 import com.task.BuildConfig
-import com.task.data.remote.moshiFactories.MyKotlinJsonAdapterFactory
-import com.task.data.remote.moshiFactories.MyStandardJsonAdapters
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -51,18 +48,11 @@ class ServiceGenerator @Inject constructor() {
         val client = okHttpBuilder.build()
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL).client(client)
-            .addConverterFactory(MoshiConverterFactory.create(getMoshi()))
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
 
     fun <S> createService(serviceClass: Class<S>): S {
         return retrofit.create(serviceClass)
-    }
-
-    private fun getMoshi(): Moshi {
-        return Moshi.Builder()
-            .add(MyKotlinJsonAdapterFactory())
-            .add(MyStandardJsonAdapters.FACTORY)
-            .build()
     }
 }

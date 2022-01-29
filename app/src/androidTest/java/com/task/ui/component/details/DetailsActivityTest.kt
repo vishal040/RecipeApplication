@@ -22,14 +22,12 @@ import org.junit.Test
 
 @HiltAndroidTest
 class DetailsActivityTest {
-
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule
     var mActivityTestRule = ActivityTestRule(DetailsActivity::class.java, true, false)
     private var mIdlingResource: IdlingResource? = null
-
 
     @Before
     fun setup() {
