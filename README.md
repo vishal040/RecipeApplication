@@ -14,13 +14,13 @@ The project uses MVVM architecture pattern.
 
 ## Libraries
 
-LiveData, ViewModel
-Retrofit
-Moshi
-Unit Testing (JUnit), MockK, Espresso UI Testing
-Repository Pattern
-AndroidX
-Picasso
-Coroutines
-Dagger (Dependency Injection)
-JetPack Libraries
+* LiveData, ViewModel
+* Retrofit
+* Moshi
+* Unit Testing (JUnit), MockK, Espresso UI Testing
+* Repository Pattern
+* AndroidX
+* Picasso
+* Coroutines
+* Dagger (Dependency Injection)
+* JetPack Libraries
