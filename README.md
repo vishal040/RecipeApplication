@@ -22,5 +22,5 @@ The project uses MVVM architecture pattern.
 * AndroidX
 * Picasso
 * Coroutines
-* Dagger (Dependency Injection)
+* Dagger-hilt (Dependency Injection)
 * JetPack Libraries
