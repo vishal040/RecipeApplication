@@ -47,7 +47,7 @@ class RecipesListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.title = getString(R.string.recipe)
+        supportActionBar?.title = getString(R.string.activity_recipes_list_action_bar_title)
         val layoutManager = LinearLayoutManager(this)
         binding.rvRecipesList.layoutManager = layoutManager
         binding.rvRecipesList.setHasFixedSize(true)
@@ -58,7 +58,7 @@ class RecipesListActivity : BaseActivity() {
         menuInflater.inflate(R.menu.main_actions, menu)
         // Associate searchable configuration with the SearchView
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
-        searchView.queryHint = getString(R.string.search_by_name)
+        searchView.queryHint = getString(R.string.activity_recipe_list_search_hint)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
@@ -86,7 +86,7 @@ class RecipesListActivity : BaseActivity() {
 
     private fun handleSearch(query: String) {
         if (query.isNotEmpty()) {
-            binding.pbLoading.visibility = VISIBLE
+            binding.loadingProgressBar.visibility = VISIBLE
             recipesListViewModel.onSearchClick(query)
         }
     }
@@ -123,26 +123,26 @@ class RecipesListActivity : BaseActivity() {
     }
 
     private fun showDataView(show: Boolean) {
-        binding.tvNoData.visibility = if (show) GONE else VISIBLE
+        binding.noDataText.visibility = if (show) GONE else VISIBLE
         binding.rvRecipesList.visibility = if (show) VISIBLE else GONE
-        binding.pbLoading.toGone()
+        binding.loadingProgressBar.toGone()
     }
 
     private fun showLoadingView() {
-        binding.pbLoading.toVisible()
-        binding.tvNoData.toGone()
+        binding.loadingProgressBar.toVisible()
+        binding.noDataText.toGone()
         binding.rvRecipesList.toGone()
     }
 
 
     private fun showSearchResult(recipesItem: RecipesItem) {
         recipesListViewModel.openRecipeDetails(recipesItem)
-        binding.pbLoading.toGone()
+        binding.loadingProgressBar.toGone()
     }
 
     private fun noSearchResult(unit: Unit) {
         showSearchError()
-        binding.pbLoading.toGone()
+        binding.loadingProgressBar.toGone()
     }
 
     private fun handleRecipesList(status: Resource<Recipes>) {

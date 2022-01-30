@@ -25,14 +25,14 @@
 
         <activity
             android:name="com.app.ui.component.recipes.RecipesListActivity"
-            android:label="@string/title_activity_recipes">
+            android:label="@string/activity_recipes_list_title">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
         <activity
             android:name="com.app.ui.component.details.DetailsActivity"
-            android:label="@string/title_activity_recipe_details" />
+            android:label="@string/activity_recipe_details_title" />
     </application>
 
 </manifest>

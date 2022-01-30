@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:id="@+id/pb_loading"
+        android:id="@+id/loadingProgressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
@@ -31,10 +31,10 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/tv_no_data"
+        android:id="@+id/noDataText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_data"
+        android:text="@string/activity_recipe_list_no_data"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="@dimen/font_32x"
         android:textStyle="italic|bold"

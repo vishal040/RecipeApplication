@@ -38,10 +38,10 @@ class DetailsActivityTest {
 
     @Test
     fun testRecipeNameDescriptionAndFavoriteView() {
-        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_name)).check(matches(withText(recipes.recipesList[0].name)))
-        onView(withId(R.id.tv_description)).perform(scrollTo())
-        onView(withId(R.id.tv_description)).check(matches(withText(recipes.recipesList[0].description)))
+        onView(withId(R.id.nameText)).check(matches(isDisplayed()))
+        onView(withId(R.id.nameText)).check(matches(withText(recipes.recipesList[0].name)))
+        onView(withId(R.id.descriptionText)).perform(scrollTo())
+        onView(withId(R.id.descriptionText)).check(matches(withText(recipes.recipesList[0].description)))
         onView(withId(R.id.add_to_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.add_to_favorite)).check(matches(isClickable()))
     }

@@ -16,7 +16,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Title_Style" parent="Base.TextAppearance.AppCompat.Large">
+    <style name="RecipeTitleStyle" parent="Base.TextAppearance.AppCompat.Large">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textStyle">bold</item>

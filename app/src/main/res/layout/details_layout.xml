@@ -9,11 +9,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_name"
-            style="@style/Title_Style"
+            android:id="@+id/nameText"
+            style="@style/RecipeTitleStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_8x"
@@ -23,22 +23,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/recipe_title_preview" />
+            tools:text="@string/activity_recipe_details_title_dummy" />
 
         <TextView
-            android:id="@+id/tv_headline"
-            style="@style/Title_Style"
+            android:id="@+id/headlineText"
+            style="@style/RecipeTitleStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_8x"
             android:textSize="@dimen/font_16x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            tools:text="@string/recipe_title_preview" />
+            app:layout_constraintTop_toBottomOf="@+id/nameText"
+            tools:text="@string/activity_recipe_details_title_dummy" />
 
         <ImageView
-            android:id="@+id/iv_recipe_Image"
+            android:id="@+id/recipeImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/image_details_height"
             android:layout_marginTop="@dimen/space_24x"
@@ -46,22 +46,22 @@
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_headline"
+            app:layout_constraintTop_toBottomOf="@+id/headlineText"
             app:srcCompat="@drawable/ic_healthy_food_small" />
 
         <TextView
-            android:id="@+id/tv_description"
+            android:id="@+id/descriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_16x"
             android:textSize="@dimen/font_16x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_recipe_Image"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage"
             tools:text="@string/recipe_details_preview_dummy" />
 
         <ProgressBar
-            android:id="@+id/pb_loading"
+            android:id="@+id/loadingProgressBar"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,5 +70,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

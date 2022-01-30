@@ -49,21 +49,18 @@ class RecipesListActivityTest {
         dataStatus = DataStatus.Success
         mActivityTestRule.launchActivity(null)
         onView(withId(R.id.rv_recipes_list)).check(matches(isDisplayed()))
-        onView(withId(R.id.pb_loading)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.loadingProgressBar)).check(matches(not(isDisplayed())))
     }
 
     @Test
     fun testRecipesListRefresh() {
         dataStatus = DataStatus.Success
         mActivityTestRule.launchActivity(null)
-        //Before refresh there is a list .
         onView(withId(R.id.rv_recipes_list)).check(matches(isDisplayed()))
-        onView(withId(R.id.pb_loading)).check(matches(not(isDisplayed())))
-        // do refresh .
+        onView(withId(R.id.loadingProgressBar)).check(matches(not(isDisplayed())))
         onView(withId(R.id.action_refresh)).perform(click())
-        //after refresh there is a list.
         onView(withId(R.id.rv_recipes_list)).check(matches(isDisplayed()))
-        onView(withId(R.id.pb_loading)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.loadingProgressBar)).check(matches(not(isDisplayed())))
     }
 
     @Test
@@ -71,8 +68,8 @@ class RecipesListActivityTest {
         dataStatus = DataStatus.Fail
         mActivityTestRule.launchActivity(null)
         onView(withId(R.id.rv_recipes_list)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.pb_loading)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.tv_no_data)).check(matches(isDisplayed()))
+        onView(withId(R.id.loadingProgressBar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.noDataText)).check(matches(isDisplayed()))
     }
 
 
@@ -84,9 +81,9 @@ class RecipesListActivityTest {
         onView(isAssignableFrom(AutoCompleteTextView::class.java))
             .perform(typeText(recipes.recipesList[0].name))
             .perform(pressKey(KeyEvent.KEYCODE_ENTER))
-        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_description)).perform(scrollTo())
-        onView(withId(R.id.tv_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.nameText)).check(matches(isDisplayed()))
+        onView(withId(R.id.descriptionText)).perform(scrollTo())
+        onView(withId(R.id.descriptionText)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -100,7 +97,7 @@ class RecipesListActivityTest {
             .perform(typeText(searchText))
             .perform(pressKey(KeyEvent.KEYCODE_ENTER))
         sleep(Toast.LENGTH_SHORT / 2L)
-        onView(withText(R.string.search_error))
+        onView(withText(R.string.activity_recipe_list_search_error))
             .inRoot(
                 RootMatchers.withDecorView(
                     CoreMatchers.not(CoreMatchers.`is`(mActivityTestRule.activity.window.decorView))
@@ -119,8 +116,8 @@ class RecipesListActivityTest {
                     click()
                 )
             )
-        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.nameText)).check(matches(isDisplayed()))
+        onView(withId(R.id.descriptionText)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -136,8 +133,8 @@ class RecipesListActivityTest {
                     click()
                 )
             )
-        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.nameText)).check(matches(isDisplayed()))
+        onView(withId(R.id.descriptionText)).check(matches(isDisplayed()))
     }
 
     @After

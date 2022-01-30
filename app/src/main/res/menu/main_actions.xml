@@ -6,12 +6,12 @@
     <item
         android:id="@+id/action_refresh"
         android:icon="@drawable/ic_sync_black_24dp"
-        android:title="@string/refresh"
+        android:title="@string/activity_recipes_list_refresh"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="@string/search_by_name"
+        android:title="@string/activity_recipe_list_search_hint"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView" />
 </menu>
